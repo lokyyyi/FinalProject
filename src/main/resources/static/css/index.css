@@ -1,0 +1,133 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Cafe24Dongdong";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Dongdong.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Cafe24Dongdong";
+}
+html {
+  font-size: 16px;
+  /* 폰트색 */
+  color: #354649;
+}
+
+header {
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+  height: 30vh;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 헤더컬러 */
+  background-color: #a3c6c4;
+  color: white;
+  width: 100vw;
+  text-align: center;
+
+  font-weight: 900;
+  min-width: 750px;
+}
+
+header p:first-child {
+  font-size: 100px;
+  padding: 1rem;
+}
+
+section {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 600px;
+}
+article {
+  width: 100%;
+}
+body {
+  /* 바디컬러 */
+  position: relative;
+  background-color: #e0e7e9;
+}
+a {
+  font-size: 20px;
+  text-decoration: none;
+  padding: 20px;
+  color: rgb(26, 26, 26);
+  font-family: "GmarketSansMedium";
+  border: 1px solid rgb(209, 208, 208);
+  background-color: #a3c6c4;
+  border-radius: 15px;
+}
+.main_box::-webkit-scrollbar {
+  display: none;
+}
+.main_container {
+  position: absolute;
+  top: -50px;
+
+  background-color: rgb(28, 36, 34);
+  text-align: center;
+  width: 80vw;
+  height: 70vh;
+  max-width: 1800px;
+  min-width: 600px;
+  border: 10px solid #5f6046;
+  box-shadow: 0px 0px 15px 7px #a0a1a0;
+}
+.main_box {
+  height: 100%;
+  overflow: auto;
+}
+.start_button {
+  position: absolute;
+  bottom: -7%;
+  right: 0;
+}
+.start_button a:first-child {
+  margin-right: 30px;
+}
+.start_button a {
+  box-shadow: 3px 3px 5px 5px #bec3c2;
+}
+
+.main_box_items {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  height: 400px;
+}
+
+.main_box_items.one {
+  background-color: rgb(84, 55, 55);
+}
+.main_box_items.two {
+  background-color: rgb(89, 74, 46);
+}
+.main_box_items.three {
+  background-color: rgb(73, 73, 42);
+}
+.main_box_items.four {
+  background-color: rgb(36, 65, 36);
+}
+.main_box_items.five {
+  background-color: rgb(15, 15, 28);
+}

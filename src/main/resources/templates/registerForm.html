@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form - Input</title>
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    name =메타테이터의 종류  content=메타데이터의 값
+    name = viewport -> 반응형 웹 (디바이스 사이즈에 따라서 브라우즈 모양을 바꿈)
+    <meta name="author" content="biblee" />
+    author= 작성자를 명시 content=이름
+    <meta name="keywords" content="회원가입" />
+    keywords = 웹페이즈들의 키워드 content= 이름 ib 회원가입 등..
+    <meta name="description" content="회원가입" />
+    description = 설명 content = 설명 내용
+    <meta http-equiv="Pragma" content="no-cache" />
+    
+    <style>
+      #ss {
+        color: powderblue;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./style.css" />  -->
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <h1 id="ss">회원가입</h1>
+    <form action="/main/regist" method="post">
+      <label for="p1">이름</label>
+      <input
+        id="p1"
+        type="text"
+        placeholder="이름을 입력하세요"
+        required
+        minlength="2"
+        maxlength="5"
+        name="m_name"
+      />
+      <label for="p2">ID</label>
+      <input
+        id="p2"
+        type="text"
+        placeholder="ID를 입혁하세요"
+        required
+        minlength="5"
+        maxlength="20"
+        name="m_id"
+      />
+      <input type="button" id="check" value="중복확인">
+      <label for="p3">비밀번호</label>
+      <input
+        id="p3"
+        type="password"
+        placeholder="비밀번호를 입력하세요"
+        required
+        minlength="8"
+        maxlength="20"
+        name="m_pw"
+      />
+      <label for="p4">키</label>
+      <input
+        id="p4"
+        type="text"
+        placeholder="키를 입력하세요"
+        required
+        maxlength="12"
+        name="m_height"
+      />
+      <label for="p5">몸무게</label>
+      <input
+        id="p5"
+        type="text"
+        placeholder="몸무게를 입력하세요"
+        required
+        name="m_weight"
+      />
+      <button style="display: none" type="submit" id="submit">
+        가입하기
+      </button>
+    </form>
+    
+    <script type="text/javascript">
+    $(document).ready(function(){
+    	$("#check").on("click", function(){
+			let mid = $("input[name='m_id']").val().trim();
+    		
+    		let checkVal = { "m_id" : mid };
+    		console.log(mid);
+    		console.log(checkVal);
+    		
+    		$.ajax({
+    			type: "POST",
+    			url: "/main/checkId",
+    			data: JSON.stringify(checkVal),
+    			contentType: "application/json",
+    			dataType: "json",
+    			success: function(msg){
+    				if(msg.check == true){
+    					alert("사용하실 수 있는 아이디입니다.");
+    					document.getElementById("submit").style.display = 'block';
+    				}else{
+    					alert("이아이디는 몬써용");
+    				}
+    			},
+    			error: function(){
+    				alert("서버오류");
+    			}
+    		});
+    	});
+    });
+    
+    
+    </script>
+  </body>
+</html>
